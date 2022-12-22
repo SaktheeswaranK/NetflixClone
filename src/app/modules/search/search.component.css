@@ -1,0 +1,15 @@
+button {
+    color : white;
+    background-color: red;
+}
+
+.btn:hover {
+    color: white;
+    background-color: red;
+}
+
+img {
+    width : 100%;
+}
+
+

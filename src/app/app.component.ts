@@ -8,6 +8,7 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   title = 'NetflixClone';
   navbg: any;
+  
   @HostListener('document:scroll') scrollover(){
     console.log(document.body.scrollTop,'scrollover#');
     
@@ -22,4 +23,5 @@ export class AppComponent {
       }
     }
   }
+
 }
