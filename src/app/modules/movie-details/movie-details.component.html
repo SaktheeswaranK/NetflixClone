@@ -1,1 +1,32 @@
-<p>movie-details works!</p>
+<div class="contain mt-5">
+    <div class="row p-5">
+        <div class="col-lg-2" *ngIf="movieResult.poster_path">
+            <img src="https:/image.tmdb.org/t/p/original/{{movieResult.poster_path}}" class="" alt="...">
+        </div>
+        <div class="col-lg-10 mt-5 p-4">
+            <h2 class="text-white">{{movieResult.original_title}}</h2>
+            <p class="text-white">{{movieResult.overview}}</p>
+            <a class="btn btn-md" href="https://www.themoviedb.org/video/play?key={{videoResult}}">watch trailer</a>
+
+            <div class="mt-5 p-5">
+                <h3 class="text-white">Top Casts</h3>
+                <div class="row">
+                    <div class="col-lg-4" *ngFor="let c of castResult">
+                        <div class="row" *ngIf="c.profile_path">
+                            <div class="col-lg-2" >
+                                <img src="https:/image.tmdb.org/t/p/original/{{c.profile_path}}" class="castImg" alt="...">
+                            </div>
+                            <div class="col-lg-10">
+                                <p class="text-white">Actor : {{c.original_name}}</p>
+                                <p class="text-white">Character : {{c.character}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
