@@ -41,6 +41,6 @@
     max-height: 300px;
 }
 
-.rowposter::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
 }
