@@ -3,8 +3,18 @@
     height: 700px;
 }
 
+#rough-c-inner {
+    height: 700px;
+}
+
 .carousel-inner .carousel-item img {
     height: 700px;
+    object-fit: cover;
+}
+
+#rough-c-inner #rough-c-item img {
+    height: auto;
+    width: 500px;
     object-fit: cover;
 }
 

@@ -6,8 +6,11 @@
         <div class="col-lg-10 mt-5 p-4">
             <h2 class="text-white">{{movieResult.original_title}}</h2>
             <p class="text-white">{{movieResult.overview}}</p>
+            <p class="text-white" style="font:italic">Ratings : {{movieResult.vote_average}}/10</p>
+            <p class="text-white" style="font:italic">Released Date: {{movieResult.release_date | date}}</p>
+            <label class="text-white" for="">Genre :</label>
+            <span class="text-white" *ngFor="let g of movieResult.genres"> {{g.name}} </span> 
             <a class="btn btn-md" href="https://www.themoviedb.org/video/play?key={{videoResult}}">watch trailer</a>
-
             <div class="mt-5 p-5">
                 <h3 class="text-white">Top Casts</h3>
                 <div class="row">
@@ -24,7 +27,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

@@ -22,3 +22,7 @@ a:hover {
     background-color: red;
 }
 
+span {
+    display: block;
+}
+

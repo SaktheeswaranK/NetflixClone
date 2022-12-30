@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
     this.service.getMovie(this.searchForm.value).subscribe((res) => {
       console.log(res,'searchResult');
       this.searchResult = res.results;
+      sessionStorage.setItem('searchResult',this.searchResult)
     })
     
   }

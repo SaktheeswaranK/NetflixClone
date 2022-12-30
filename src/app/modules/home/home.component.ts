@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   actionResult: any =[];
   animationResult: any;
   scroll : any;
+  comedyResult: any;
 
   constructor(private service : MovieApiService) { }
 
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
     this.getTrendingMoviesResult();
     this.getActionMoviesResult();
     this.getAnimationMoviesResult();
+    this.getComedyMoviesResult();
   }
 
   // bannerData
@@ -68,4 +70,11 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  // comedy movies
+  getComedyMoviesResult() {
+    this.service.fetchComedyMovies().subscribe((res) => {
+      console.log(res,'comedymovies#');
+      this.comedyResult = res.results;
+    }) 
+  }
 }
