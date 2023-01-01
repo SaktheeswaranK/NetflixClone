@@ -6,6 +6,7 @@
         <div class="col-lg-10 mt-5 p-4">
             <h2 class="text-white">{{movieResult.original_title}}</h2>
             <p class="text-white">{{movieResult.overview}}</p>
+            <ngb-rating [max]="5" [rate]="ratings | rating :movieResult.vote_average" [readonly]="true"></ngb-rating>
             <p class="text-white" style="font:italic">Ratings : {{movieResult.vote_average}}/10</p>
             <p class="text-white" style="font:italic">Released Date: {{movieResult.release_date | date}}</p>
             <label class="text-white" for="">Genre :</label>

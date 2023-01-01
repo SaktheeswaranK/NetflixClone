@@ -26,3 +26,7 @@ span {
     display: block;
 }
 
+ngb-rating {
+    color: yellow;
+}
+

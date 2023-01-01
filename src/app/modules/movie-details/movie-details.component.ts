@@ -13,6 +13,7 @@ export class MovieDetailsComponent implements OnInit,OnDestroy {
   movieResult : any;
   videoResult : any;
   castResult:any;
+  ratings : number = 0;
   subscritions !: Subscription;
 
   constructor(private service : MovieApiService, private router: ActivatedRoute) { }
