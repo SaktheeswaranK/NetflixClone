@@ -1,4 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 
 @Component({
@@ -6,28 +8,20 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
 
   bannerResult : any = [];
   trendingResult : any = [];
   actionResult: any =[];
   animationResult: any;
-  scroll : any;
+  docResult : any;
   comedyResult: any;
+  sciResult : any;
+  thrillResult : any;
+  subscriptions !: Subscription;
 
-  constructor(private service : MovieApiService) { }
-
-  // @HostListener('scroll', ['$event']) private onScroll($event:Event):void {
-  //   console.log($event.srcElement.scrollLeft, $event.srcElement.scrollTop);
-  // };
-  
-  onScroll(e : Event) {
-    console.table(e);
-    if(e) {
-
-    }
-  }
+  constructor(private service : MovieApiService, private http : HttpClient) { }
 
   ngOnInit(): void {
     // this.onScroll();
@@ -36,11 +30,14 @@ export class HomeComponent implements OnInit {
     this.getActionMoviesResult();
     this.getAnimationMoviesResult();
     this.getComedyMoviesResult();
+    this.getDocMoviesResult();
+    this.getSciMovies();
+    this.getThrillerResult();  
   }
 
   // bannerData
   getBannerResult (){
-    this.service.getBanner().subscribe( (res)=> {
+    this.subscriptions = this.service.getBanner().subscribe( (res)=> {
       console.log(res,'bannerResult#');
       this.bannerResult = res.results;
     } )
@@ -48,7 +45,7 @@ export class HomeComponent implements OnInit {
 
   //trending movies
   getTrendingMoviesResult() {
-    this.service.getTrendingMovies().subscribe((res) => {
+    this.subscriptions = this.service.getTrendingMovies().subscribe((res) => {
       console.log(res,'TrendingMovieRes#');
       this.trendingResult = res.results;
     })
@@ -56,7 +53,7 @@ export class HomeComponent implements OnInit {
 
   //action movies
   getActionMoviesResult() {
-    this.service.fetchActionMovies().subscribe((res=> {
+    this.subscriptions =this.service.fetchActionMovies().subscribe((res=> {
       console.log(res,'Action movies#');
       this.actionResult = res.results;
     }))
@@ -64,7 +61,7 @@ export class HomeComponent implements OnInit {
 
   //animation movies
   getAnimationMoviesResult() {
-    this.service.fetchAnimationMovies().subscribe((res) => {
+    this.subscriptions =this.service.fetchAnimationMovies().subscribe((res) => {
       console.log(res, 'Animation Movies#');
       this.animationResult = res.results;
     })
@@ -72,9 +69,38 @@ export class HomeComponent implements OnInit {
 
   // comedy movies
   getComedyMoviesResult() {
-    this.service.fetchComedyMovies().subscribe((res) => {
+    this.subscriptions =this.service.fetchComedyMovies().subscribe((res) => {
       console.log(res,'comedymovies#');
       this.comedyResult = res.results;
     }) 
   }
+
+  //doc movies
+  getDocMoviesResult() { 
+     this.subscriptions = this.service.fetchDocumentaryMovies().subscribe((res) => {
+      console.log(res, 'docMOvies#');
+      this.docResult = res.results;      
+     })
+  }
+
+  //Sci-fi movies
+  getSciMovies() {
+    this.subscriptions = this.service.fetchScienceFictionMovies().subscribe((res) => {
+      console.log(res, 'sciRes#');
+      this.sciResult = res.results;
+    })
+  }
+
+  //Thriller movies
+  getThrillerResult() {
+    this.subscriptions = this.service.fetchThrillerMovies().subscribe((res)=>{
+      console.log(res, 'thriller res#');
+      this.thrillResult = res.results;
+    })
+  }
+
+  ngOnDestroy(): void {
+      this.subscriptions &&  this.subscriptions.unsubscribe();
+  }
+
 }

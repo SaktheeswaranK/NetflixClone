@@ -5,7 +5,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="2000" *ngFor="let b of bannerResult; let i = index"
         [ngClass]="{active : i == 1}">
-        <img src="https:/image.tmdb.org/t/p/original{{b.backdrop_path}}" 
+        <img  src="https:/image.tmdb.org/t/p/original{{b.backdrop_path}}" 
         class="d-block w-100" alt="..."
         [routerLink]="['/movie',b.id]">
         <div class="carousel-caption d-none d-md-block">
@@ -30,7 +30,7 @@
   <div class="contain mt-3 p-4">
     <div class="row">
       <h5 class="text-white">Trending Movies</h5>
-      <div class="rowposter mt-3 p-2" (scroll)="onScroll($event)">
+      <div class="rowposter mt-3 p-2">
         <ng-container *ngFor="let t of trendingResult">
           <img src="https:/image.tmdb.org/t/p/original{{t.poster_path}}" class="rowing largeposter"
             [routerLink]="['movie',t.id]">
@@ -78,6 +78,45 @@
     </div>
   </div>
 
+  <!-- Document area -->
+  <div class="contain mt-3 p-4">
+    <div class="row">
+      <h5 class="text-white">Documentry Movies</h5>
+      <div class="rowposter mt-3 p-2">
+        <ng-container *ngFor="let t of docResult">
+          <img src="https:/image.tmdb.org/t/p/original{{t.poster_path}}" class="rowing largeposter"
+            [routerLink]="['movie',t.id]">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- sci-fi area -->
+  <div class="contain mt-3 p-4">
+    <div class="row">
+      <h5 class="text-white">Sci-Fiction Movies</h5>
+      <div class="rowposter mt-3 p-2">
+        <ng-container *ngFor="let t of sciResult">
+          <img src="https:/image.tmdb.org/t/p/original{{t.poster_path}}" class="rowing largeposter"
+            [routerLink]="['movie',t.id]">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thriller area -->
+  <div class="contain mt-3 p-4">
+    <div class="row">
+      <h5 class="text-white">Thriller Movies</h5>
+      <div class="rowposter mt-3 p-2">
+        <ng-container *ngFor="let t of thrillResult">
+          <img src="https:/image.tmdb.org/t/p/original{{t.poster_path}}" class="rowing largeposter"
+            [routerLink]="['movie',t.id]">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
   <!-- rough work -->
   <!-- <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-slide="carousel">
     <div class="carousel-inner" id="rough-c-inner">
@@ -97,4 +136,4 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div> -->
-  
+

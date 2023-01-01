@@ -76,4 +76,5 @@ export class MovieApiService {
     return this.http.get(`${this.baseUrl}/discover/movie?api_key=${this.apiKey}&with_genres=53`);
   }
 
+
 }
