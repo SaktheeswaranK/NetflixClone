@@ -10,18 +10,24 @@
         </div>
       </form>
 
-      <div class="row p-5">
+      <div class="row p-5" *ngIf="result">
         <div class="col-lg-4" *ngFor="let s of searchResult">
-            <div class="row mb-3" *ngIf="s.poster_path">
-                <div class="col-lg-3 mx-auto">
-                    <img src="https:/image.tmdb.org/t/p/original/{{s.poster_path}}" 
-                    class="" alt="..."
-                    [routerLink]="['/movie',s.id]">
-                </div>
-                <div class="col-lg-9">
-                    <h4>{{s.original_title}}</h4>
+            <div *ngIf="s.poster_path">
+                <div class="row mb-3">
+                    <div class="col-lg-3 mx-auto">
+                        <img src="https:/image.tmdb.org/t/p/original/{{s.poster_path}}" 
+                        class="" alt="..."
+                        [routerLink]="['/movie',s.id]">
+                    </div>
+                    <div class="col-lg-9">
+                        <h4>{{s.original_title}}</h4>
+                    </div>
                 </div>
             </div>
         </div>
       </div>
+
+      <div id="error" class="" *ngIf="!result">
+        <div>Ops! :( we can't find the results</div>
+    </div>
 </div>

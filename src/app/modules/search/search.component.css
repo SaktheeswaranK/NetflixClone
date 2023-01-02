@@ -15,3 +15,9 @@ img {
 h4 {
     color : white;
 }
+
+#error {
+    color: red;
+    display: grid;
+    place-items: center;
+}

@@ -9,7 +9,8 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 })
 export class SearchComponent implements OnInit {
 
-  searchResult : any = [];
+  searchResult : any;
+  result : boolean = true;
 
   constructor(private service : MovieApiService) { }
 
@@ -21,11 +22,15 @@ export class SearchComponent implements OnInit {
   })
 
   search(){
+    // this.searchResult.length = 0;
     console.log(this.searchForm.value,'searchMoive#');
     this.service.getMovie(this.searchForm.value).subscribe((res) => {
       console.log(res,'searchResult');
       this.searchResult = res.results;
-      sessionStorage.setItem('searchResult',this.searchResult)
+      // const ret = this.searchResult;
+      // console.log(ret.length, 'results#');
+      this.searchResult.length==0 ? this.result = false: this.result = true ;
+      // sessionStorage.setItem('searchResult',this.searchResult)
     })
     
   }

@@ -14,6 +14,7 @@ export class MovieDetailsComponent implements OnInit,OnDestroy {
   videoResult : any;
   castResult:any;
   ratings : number = 0;
+  voteCount : string = 'sdfs';
   subscritions !: Subscription;
 
   constructor(private service : MovieApiService, private router: ActivatedRoute) { }

@@ -9,4 +9,5 @@ export class RatingPipe implements PipeTransform {
     const rate = id/2;
     return rate;
   }
+
 }

@@ -9,8 +9,9 @@ import { MovieDetailsComponent } from './modules/movie-details/movie-details.com
 
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingPipe } from './pipes/rating.pipe';
+import { VoteCountPipe } from './pipes/vote-count.pipe';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,16 @@ import { RatingPipe } from './pipes/rating.pipe';
     HomeComponent,
     SearchComponent,
     MovieDetailsComponent,
-    RatingPipe
+    RatingPipe,
+    VoteCountPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgbPopoverModule
   ],
   providers: [],
   bootstrap: [AppComponent]
