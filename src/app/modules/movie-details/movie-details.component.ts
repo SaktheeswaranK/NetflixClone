@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MovieApiService } from 'src/app/services/movie-api.service';
@@ -16,6 +17,7 @@ export class MovieDetailsComponent implements OnInit,OnDestroy {
   ratings : number = 0;
   voteCount : string = 'sdfs';
   subscritions !: Subscription;
+ 
 
   constructor(private service : MovieApiService, private router: ActivatedRoute) { }
 

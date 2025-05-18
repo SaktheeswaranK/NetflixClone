@@ -29,7 +29,8 @@ export class SearchComponent implements OnInit {
       this.searchResult = res.results;
       // const ret = this.searchResult;
       // console.log(ret.length, 'results#');
-      this.searchResult.length==0 ? this.result = false: this.result = true ;
+      // this.searchResult.length==0 ? this.result = false: this.result = true ;
+      this.result = !(this.searchResult.length == 0)
       // sessionStorage.setItem('searchResult',this.searchResult)
     })
     

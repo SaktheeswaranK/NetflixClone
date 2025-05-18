@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingPipe } from './pipes/rating.pipe';
 import { VoteCountPipe } from './pipes/vote-count.pipe';
+import { TextComponent } from './shared/text/text.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { VoteCountPipe } from './pipes/vote-count.pipe';
     SearchComponent,
     MovieDetailsComponent,
     RatingPipe,
-    VoteCountPipe
+    VoteCountPipe,
+    TextComponent
   ],
   imports: [
     BrowserModule,
