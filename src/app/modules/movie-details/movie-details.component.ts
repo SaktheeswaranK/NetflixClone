@@ -29,14 +29,14 @@ export class MovieDetailsComponent implements OnInit,OnDestroy {
   }
 
   getMovieResult(id: any){
-    this.subscritions =  this.service.getMovieDetails(id).subscribe((res) => {
+    this.subscritions =  this.service.getMovieDetails(id).subscribe((res: any) => {
       console.log(res, 'Movie Details#');
       this.movieResult = res;
     })
   }
 
   getVideo(id : any) {
-    this.subscritions = this.service.getMovieVideo(id).subscribe((res) => {
+    this.subscritions = this.service.getMovieVideo(id).subscribe((res: any) => {
       console.log(res,'videoResult#');
       res.results.forEach((element:any) => {
         if (element.type == "Trailer") {
@@ -48,7 +48,7 @@ export class MovieDetailsComponent implements OnInit,OnDestroy {
   }
 
   getCast(id:any) {
-    this.subscritions = this.service.getMovieCast(id).subscribe((res) => {
+    this.subscritions = this.service.getMovieCast(id).subscribe((res: any) => {
       console.log(res,'castResult#');
       this.castResult = res.cast;
     })
